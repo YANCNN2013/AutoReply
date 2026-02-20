@@ -16,7 +16,7 @@
 1. 确保已安装 Python 3.7+ 版本
 2. 安装核心依赖包：
 ```bash
-pip install pyautogui opencv-python pillow
+pip install pyautogui opencv-python pillow pywin32
 ```
 3. 注意：`pyautogui` 依赖 OpenCV，安装失败时可尝试：
 ```bash
