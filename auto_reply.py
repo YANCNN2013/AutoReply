@@ -50,7 +50,7 @@ def main() -> None:
     pyautogui.press("enter")
     while True:
         try:
-            button_pos = pyautogui.locateCenterOnScreen('copy_icon.png', confidence=0.9)
+            button_pos = pyautogui.locateCenterOnScreen('copy_icon.png', confidence=0.99)
             if button_pos:
                 for i in range(2):    # 防止点击失效
                     pyautogui.click(button_pos)
