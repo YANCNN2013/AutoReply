@@ -3,6 +3,8 @@ import time
 import pyautogui
 import up
 import message
+import check
+import random
 
 call_count = 0
 pyautogui.PAUSE = 0.5
@@ -14,8 +16,7 @@ def click_button() -> None:
         try:
             button_pos = pyautogui.locateCenterOnScreen('button.png', confidence=0.9)
             if button_pos:
-                for i in range(3):    # 防止点击失效
-                    pyautogui.click(button_pos)
+                pyautogui.click(button_pos)
                 time.sleep(1)
                 break 
         except pyautogui.ImageNotFoundException:
@@ -48,14 +49,15 @@ def main() -> None:
     pyautogui.hotkey('ctrl', 'v')
     time.sleep(5)
     pyautogui.press("enter")
-    while True:
+    while check.is_clipboard_image():     # 防止点击无效
         try:
-            button_pos = pyautogui.locateCenterOnScreen('copy_icon.png', confidence=0.99)
+            button_pos = pyautogui.locateCenterOnScreen(random.choice(['copy.png', 'copy_icoon.png']), confidence=0.99)
             if button_pos:
-                for i in range(2):    # 防止点击失效
-                    pyautogui.click(button_pos)
+                pyautogui.click(button_pos)
                 time.sleep(1)
-                break 
+            else:
+                click_button()
+                time.sleep(1)
         except pyautogui.ImageNotFoundException:
             click_button()
             time.sleep(1)
