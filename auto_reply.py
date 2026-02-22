@@ -51,7 +51,7 @@ def main() -> None:
     pyautogui.press("enter")
     while check.is_clipboard_image():     # 防止点击无效
         try:
-            button_pos = pyautogui.locateCenterOnScreen(random.choice(['copy.png', 'copy_icoon.png']), confidence=0.99)
+            button_pos = pyautogui.locateCenterOnScreen(random.choice(['copy.png', 'copy_icon.png']), confidence=0.99)
             if button_pos:
                 pyautogui.click(button_pos)
                 time.sleep(1)
